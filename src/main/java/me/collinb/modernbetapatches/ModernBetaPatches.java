@@ -4,19 +4,13 @@ import me.collinb.modernbetapatches.manager.CapeManager;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.world.GameMode;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class ModernBetaPatches implements ClientModInitializer {
-    public static final String MOD_ID = "modernbetapatches";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static String currentServer = null;
 
     @Override
@@ -32,9 +26,7 @@ public class ModernBetaPatches implements ClientModInitializer {
             }
         });
 
-        ClientPlayConnectionEvents.DISCONNECT.register(((clientPlayNetworkHandler, minecraftClient) -> {
-            currentServer = null;
-        }));
+        ClientPlayConnectionEvents.DISCONNECT.register(((clientPlayNetworkHandler, minecraftClient) -> currentServer = null));
 
         ClientTickEvents.END_CLIENT_TICK.register((client) -> {
             if (!isModernBeta()) return;
@@ -53,15 +45,6 @@ public class ModernBetaPatches implements ClientModInitializer {
                 }
             }
         });
-    }
-
-    public static GameMode getPlayerGameMode() {
-        MinecraftClient client = MinecraftClient.getInstance();
-        if (client.interactionManager != null) {
-            return client.interactionManager.getCurrentGameMode();
-        } else {
-            return null;
-        }
     }
 
     public static boolean isModernBeta() {
