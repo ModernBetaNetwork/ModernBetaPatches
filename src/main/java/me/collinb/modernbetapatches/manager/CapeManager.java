@@ -26,8 +26,8 @@ public class CapeManager {
                 NativeImage reformatted = new NativeImage(NativeImage.Format.RGBA, 64, 32, true);
                 reformatted.fillRect(0, 0, 64, 32, 0x00000000);
 
-                for (int y = 0; y < image.getHeight(); y++) {
-                    for (int x = 0; x < image.getWidth(); x++) {
+                for (int y = 0; y < image.getHeight(); ++y) {
+                    for (int x = 0; x < image.getWidth(); ++x) {
                         int color = image.getColorArgb(x, y);
                         reformatted.setColorArgb(x, y, color);
                     }
@@ -49,5 +49,9 @@ public class CapeManager {
 
     public static Identifier getCape(UUID uuid) {
         return capes.get(uuid);
+    }
+
+    public static boolean isModernBetaCape(Identifier id) {
+        return id != null && "modernbetacapes".equals(id.getNamespace());
     }
 }
