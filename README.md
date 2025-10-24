@@ -1,17 +1,6 @@
 # ModernBetaPatches
 
-Various client-side improvements for [Modern Beta](modernbeta.org). This mod will only apply while logged onto the Modern Beta server, and will have no effect in singleplayer and on other multiplayer servers. The goal of this mod is to remove client/server disagreements for features that can only be implemented server-side.
-
-## Client Fixes
-
-- Turns server capes into real capes.
-- Prevents upper slabs from being placed.
-- Prevents upside down stairs from being placed.
-- Prevents top trapdoors from being placed.
-- Prevents stairs from connecting to other stairs.
-- Prevents fences from connecting to other blocks.
-- Prevents sprinting in survival mode.
-- Prevents swimming/crawling.
+Cape fix for [Modern Beta](https://www.modernbeta.org/). This mod will only apply while logged onto the Modern Beta server, and will have no effect in singleplayer and on other multiplayer servers.
 
 ## Contributing
 
