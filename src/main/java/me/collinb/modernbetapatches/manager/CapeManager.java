@@ -37,7 +37,7 @@ public class CapeManager {
 
                 MinecraftClient.getInstance().execute(() -> {
                     MinecraftClient.getInstance().getTextureManager()
-                            .registerTexture(id, new NativeImageBackedTexture(reformatted));
+                            .registerTexture(id, new NativeImageBackedTexture(id::toString, reformatted));
                     capes.put(uuid, id);
                 });
             } catch (IOException ignored) {
